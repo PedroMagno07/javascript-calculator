@@ -25,7 +25,7 @@ This is a static web project and requires no installation. To run it locally, fo
 
 1.  **Clone the repository:**
     ```sh
-    git clone [https://github.com/PedroMagno07/javascript-calculator.git](https://github.com/your-username/javascript-calculator.git)
+    git clone [https://github.com/PedroMagno07/javascript-calculator.git](https://github.com/PedroMagno07/javascript-calculator.git)
     ```
 
 2.  **Navigate to the project directory:**
