@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculator</title>
     <style>
         .body{
             margin: 0;
@@ -50,58 +50,6 @@
             font-size: 36px;
         }
 
-        .calc2 {
-            display: flex;
-            flex-direction: column; /* <--- MUDANÇA PRINCIPAL */
-            justify-content: center;
-            align-items: center;
-        }
-
-        .calc2 > div {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
-        }
-
-        .calc2 .operator2 {
-            width: 37px;
-            height: 37px;
-            background-color: #FF8000;
-            color: white;
-            font-size: 14px;
-            border: none;
-        }
-
-        .calc2 .operator2:hover {
-            background-color: #EE5000;
-        }
-
-        .calc2 input {
-            size: 3;
-            width: 40px;
-            height: 37px;
-        }
-
-        .calc2 .number {
-            padding: 10px;
-            border: 1px #CCC;
-        }
-
-        .calc2 .clear2 {
-            background-color: #FF8000;
-            border: none;
-            color: white;
-            font-size: 10px;
-            width: 50px;
-            height: 37px;
-        }
-
-        .calc2 .result2 {
-            size: 10;
-            width: 70px;
-        }
-
     </style>
 </head>
 <body>
@@ -133,53 +81,7 @@
                 <br>
 
         </div>
-
-    </div>
-
-    <div class="baixo">
-        <div class="calc2">
-
-            <div class="row1">
-                <input type="number">
-                <input type="number">
-                <button class="operator2" onclick="appendToResult2('+')">+</button>
-                <p id="equal">=</p>
-                <input readonly type="number" class="result2" placeholder="Resultado">
-                <button class="clear2" onclick="clearResult2()">Limpar</button>
-            </div>
-
-            <div class="row2">
-                <input type="number">
-                <input type="number">
-                <button class="operator2" onclick="appendToResult2('-')">-</button>
-                <p id="equal">=</p>
-                <input readonly type="number" class="result2" placeholder="Resultado">
-                <button class="clear2" onclick="clearResult2()">Limpar</button>
-            </div>
-
-            <div class="row3">
-                <input type="number">
-                <input type="number">
-                <button class="operator2" onclick="appendToResult2('*')">*</button>
-                <p id="equal">=</p>
-                <input readonly type="number" class="result2" placeholder="Resultado">
-                <button class="clear2" onclick="clearResult2()">Limpar</button>
-            </div>
-
-            <div class="row4">
-                <input type="number">
-                <input type="number">
-                <button class="operator2" onclick="appendToResult2('/')">/</button>
-                <p id="equal">=</p>
-                <input readonly type="number" class="result2" placeholder="Resultado">
-                <button class="clear2" onclick="clearResult2()">Limpar</button>
-            </div>
-
-
-        </div>
-        
-    </div>
-
+    </div>        
 <script>
 
         function appendToResult(value) {
@@ -205,4 +107,5 @@
     </script>
 
 </body>
+
 </html>
