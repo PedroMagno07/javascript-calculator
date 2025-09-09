@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .body{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .cima{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .calc1{
+            padding: 10px;
+            border: 5px solid gray;
+            background-color: rgb(83, 83, 83);
+        }
+
+        .calc1 button{
+            width: 70px;
+            height: auto;
+            font-size: 36px;
+            margin: 5px;
+            border-radius: 10px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .calc1 .operator{
+            background-color: rgb(183, 0, 255);
+            color: rgb(0, 0, 0);
+        }
+
+        .calc1 .clear{
+            background-color:red;
+            color: rgb(0, 0, 0);
+        }
+
+        .calc1 input {
+            width: 320px;
+            height: 80px;
+            font-size: 36px;
+        }
+
+        .calc2 {
+            display: flex;
+            flex-direction: column; /* <--- MUDANÇA PRINCIPAL */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .calc2 > div {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .calc2 .operator2 {
+            width: 37px;
+            height: 37px;
+            background-color: #FF8000;
+            color: white;
+            font-size: 14px;
+            border: none;
+        }
+
+        .calc2 .operator2:hover {
+            background-color: #EE5000;
+        }
+
+        .calc2 input {
+            size: 3;
+            width: 40px;
+            height: 37px;
+        }
+
+        .calc2 .number {
+            padding: 10px;
+            border: 1px #CCC;
+        }
+
+        .calc2 .clear2 {
+            background-color: #FF8000;
+            border: none;
+            color: white;
+            font-size: 10px;
+            width: 50px;
+            height: 37px;
+        }
+
+        .calc2 .result2 {
+            size: 10;
+            width: 70px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="cima">
+        <div class="calc1">
+                <!-- PARA O VISOR DA CALCULADORA, ESTAMOS UTILIZANDO O "input readonly", LIMITANDO O NÚMERO DE CARACTERES COM "maxlength='12'" -->
+                <input readonly type="text" class="result" maxlength="12"> 
+                
+                <br>
+                <button onclick="appendToResult('7')">7</button>
+                <button onclick="appendToResult('8')">8</button>
+                <button onclick="appendToResult('9')">9</button>
+                <button class="operator" onclick="appendToResult('/')">/</button>
+                <br>
+                <button onclick="appendToResult('4')">4</button>
+                <button onclick="appendToResult('5')">5</button>
+                <button onclick="appendToResult('6')">6</button>
+                <button class="operator" onclick="appendToResult('*')">*</button>
+                <br>
+                <button onclick="appendToResult('1')">1</button>
+                <button onclick="appendToResult('2')">2</button>
+                <button onclick="appendToResult('3')">3</button>
+                <button class="operator" onclick="appendToResult('-')">-</button>
+                <br>
+                <button onclick="appendToResult('0')">0</button>
+                <button class="clear" onclick="clearResult()">CA</button>
+                <button class="operator" onclick="calculateResult()">=</button>
+                <button class="operator" onclick="appendToResult('+')">+</button>
+                <br>
+
+        </div>
+
+    </div>
+
+    <div class="baixo">
+        <div class="calc2">
+
+            <div class="row1">
+                <input type="number">
+                <input type="number">
+                <button class="operator2" onclick="appendToResult2('+')">+</button>
+                <p id="equal">=</p>
+                <input readonly type="number" class="result2" placeholder="Resultado">
+                <button class="clear2" onclick="clearResult2()">Limpar</button>
+            </div>
+
+            <div class="row2">
+                <input type="number">
+                <input type="number">
+                <button class="operator2" onclick="appendToResult2('-')">-</button>
+                <p id="equal">=</p>
+                <input readonly type="number" class="result2" placeholder="Resultado">
+                <button class="clear2" onclick="clearResult2()">Limpar</button>
+            </div>
+
+            <div class="row3">
+                <input type="number">
+                <input type="number">
+                <button class="operator2" onclick="appendToResult2('*')">*</button>
+                <p id="equal">=</p>
+                <input readonly type="number" class="result2" placeholder="Resultado">
+                <button class="clear2" onclick="clearResult2()">Limpar</button>
+            </div>
+
+            <div class="row4">
+                <input type="number">
+                <input type="number">
+                <button class="operator2" onclick="appendToResult2('/')">/</button>
+                <p id="equal">=</p>
+                <input readonly type="number" class="result2" placeholder="Resultado">
+                <button class="clear2" onclick="clearResult2()">Limpar</button>
+            </div>
+
+
+        </div>
+        
+    </div>
+
+<script>
+
+        function appendToResult(value) {
+            const display = document.querySelector('.result');
+            display.value += value;
+        }
+
+        function clearResult() {
+            const display = document.querySelector('.result');
+            display.value = '';
+        }
+
+        function calculateResult() {
+            const display = document.querySelector('.result');
+            try {
+// ESTAMOS UTILIZANDO "eval", PARA QUE ELE INTERPRETE A CONTA DIGITADA NO DISPLAY
+                display.value = eval(display.value); 
+            }   catch (error) {
+                display.value = 'Erro'
+            }
+        }
+
+    </script>
+
+</body>
+</html>
